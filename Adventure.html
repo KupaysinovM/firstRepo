@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Start the story
+alert("Welcome to the Choose Your Adventure game!");
+
+// First choice
+let choice1 = prompt(
+  "You are standing at a crossroads. Do you go to the forest or the castle? (Type 'forest' or 'castle')"
+);
+
+if (choice1 === "forest") {
+  // Forest path
+  let choice2 = prompt(
+    "You enter the forest and hear strange noises. Do you explore or run away? (Type 'explore' or 'run')"
+  );
+  if (choice2 === "explore") {
+    alert("You found a hidden treasure in the forest! You win!");
+  } else if (choice2 === "run") {
+    alert("You safely returned home, but you missed an adventure. The end!");
+  } else {
+    alert("Invalid choice. The story ends here.");
+  }
+} else if (choice1 === "castle") {
+  // Castle path
+  let choice3 = prompt(
+    "You arrive at the castle. Do you open the door or look around? (Type 'open' or 'look')"
+  );
+  if (choice3 === "open") {
+    alert(
+      "The door creaks open, and you meet a friendly dragon offering you gold. You win!"
+    );
+  } else if (choice3 === "look") {
+    alert("You found a secret passage leading to a magical garden. The end!");
+  } else {
+    alert("Invalid choice. The story ends here.");
+  }
+} else {
+  alert("Invalid choice. The story ends here.");
+}
+    </script>
+</body>
+</html>

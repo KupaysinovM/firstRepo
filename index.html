@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>Puzzle Game</h1>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            -webkit-text-fill-color: white;
+        }
+        table, td {
+            border: 1px solid white;
+            text-align: center;
+            padding: 8px;
+        }
+        button {
+            background-color: white;
+            -webkit-text-fill-color: black;
+            padding: 10px 20px;
+        }
+        button:hover {
+            background-color: black;
+            -webkit-text-fill-color: blue;
+        }
+        body {
+           background-color: black;            
+           -webkit-text-fill-color: white;     
+        }
+    </style>
+</head>
+<body>
+    <table id="Puzzle" class="Puzzle">
+        <tbody>
+            <tr>
+                <td>q</td>
+                <td>e</td>
+                <td>g</td>
+                <td>b</td>
+                <td>a</td>
+                <td>o</td>
+                <td>c</td>
+                <td>x</td>
+                <td>v</td>
+                <td>z</td>
+            </tr>
+            <tr>
+                <td>h</td>
+                <td>j</td>
+                <td>m</td>
+                <td>a</td>
+                <td>x</td>
+                <td>v</td>
+                <td>z</td>
+                <td>k</td>
+                <td>l</td>
+                <td>u</td>
+            </tr>
+            <tr>
+                <td>l</td>
+                <td>f</td>
+                <td>c</td>
+                <td>a</td>
+                <td>u</td>
+                <td>e</td>
+                <td>t</td>
+                <td>o</td>
+                <td>p</td>
+                <td>d</td>
+            </tr>
+            <tr>
+                <td>d</td>
+                <td>a</td>
+                <td>c</td>
+                <td>v</td>
+                <td>m</td>
+                <td>a</td>
+                <td>h</td>
+                <td>w</td>
+                <td>n</td>
+                <td>y</td>
+            </tr>
+            <tr>
+                <td>t</td>
+                <td>b</td>
+                <td>r</td>
+                <td>s</td>
+                <td>o</td>
+                <td>l</td>
+                <td>w</td>
+                <td>j</td>
+                <td>q</td>
+                <td>p</td>
+            </tr>
+            <tr>
+                <td>g</td>
+                <td>k</td>
+                <td>y</td>
+                <td>e</td>
+                <td>d</td>
+                <td>n</td>
+                <td>v</td>
+                <td>x</td>
+                <td>c</td>
+                <td>z</td>
+            </tr>
+            <tr>
+                <td>u</td>
+                <td>w</td>
+                <td>f</td>
+                <td>m</td>
+                <td>h</td>
+                <td>t</td>
+                <td>r</td>
+                <td>s</td>
+                <td>j</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>o</td>
+                <td>z</td>
+                <td>v</td>
+                <td>b</td>
+                <td>c</td>
+                <td>f</td>
+                <td>e</td>
+                <td>u</td>
+                <td>k</td>
+                <td>y</td>
+            </tr>
+            <tr>
+                <td>p</td>
+                <td>d</td>
+                <td>w</td>
+                <td>x</td>
+                <td>o</td>
+                <td>n</td>
+                <td>m</td>
+                <td>g</td>
+                <td>t</td>
+                <td>l</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>h</td>
+                <td>q</td>
+                <td>j</td>
+                <td>b</td>
+                <td>s</td>
+                <td>y</td>
+                <td>v</td>
+                <td>f</td>
+                <td>r</td>
+            </tr>
+        </tbody>
+    </table>
+<button id="What words you must to find?">What words you must to find?</button>
+<button id="I found!">I found!</button>
+<script>
+    const instructionsButton = document.getElementById("What words you must to find?")
+    instructionsButton.addEventListener('click', () => {
+            alert(`Words that you must to find:\nVertical:\n           1.Elf\n           2.Bad\n           3.Man\nHorizontal: \n           1.Cat \n           2.Bed \n           3.Cow`);
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPS Test Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        #cpsDisplay {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        #clickButton {
+            font-size: 25px;
+            padding: 20px 40px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #startButton {
+            font-size: 20px;
+            padding: 15px 30px;
+            cursor: pointer;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .timer {
+            font-size: 50px;
+            color: #e74c3c;
+        }
+        #settings {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #goToFileGame {
+            background-color: black;
+            -webkit-text-fill-color: white;
+        }
+        #settings {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 300px;
+            background-color: #fff;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Click Per Second (CPS) Test</h1>
+        <p>Click the button as fast as you can when the timer starts!</p>
+
+        <div id="settings">
+            <label for="timeSetting">Select test duration: </label>
+            <select id="timeSetting">
+                <option value="5">5 seconds</option>
+                <option value="10" selected>10 seconds</option>
+                <option value="15">15 seconds</option>
+                <option value="20">20 seconds</option>
+                <option value="30">30 seconds</option>
+                <option value="60">60 seconds</option>
+            </select>
+        </div>
+
+        <div id="timer" class="timer">0</div>
+        <div id="cpsDisplay">CPS: 0</div>
+        
+        <button id="startButton">Start</button>
+        <button id="clickButton" style="display: none;">Click Me!</button>
+        <button id="goToFileGame"><a href="Game.html">Back to another Game</a></button>
+    </div>
+
+    <script>
+        let startButton = document.getElementById('startButton');
+        let clickButton = document.getElementById('clickButton');
+        let timerDisplay = document.getElementById('timer');
+        let cpsDisplay = document.getElementById('cpsDisplay');
+        let timeSetting = document.getElementById('timeSetting');
+        
+        let startTime = 0;
+        let clicks = 0;
+        let timer = 0;
+        let interval;
+        let totalTime = 10; // Default time is 10 seconds
+
+        // Update the total time based on user selection
+        timeSetting.addEventListener('change', function() {
+            totalTime = parseInt(timeSetting.value);
+        });
+
+        // Start the timer and click button
+        startButton.addEventListener('click', function() {
+            startButton.style.display = 'none';
+            clickButton.style.display = 'inline-block';
+            clicks = 0;
+            timer = 0;
+            timerDisplay.textContent = timer;
+            cpsDisplay.textContent = "CPS: 0";
+
+            // Set a random time between 2 and 5 seconds for the test to start
+            setTimeout(function() {
+                interval = setInterval(function() {
+                    timer++;
+                    timerDisplay.textContent = timer;
+                    if (timer >= totalTime) {
+                        clearInterval(interval);
+                        clickButton.style.display = 'none';
+                        cpsDisplay.textContent = `Final CPS: ${(clicks / totalTime).toFixed(2)}`;
+                        startButton.style.display = 'inline-block';
+                    }
+                }, 1000);
+            }, Math.floor(Math.random() * 3000) + 2000);  // Timer delay between 2 and 5 seconds
+        });
+
+        // Increment click count every time the button is clicked
+        clickButton.addEventListener('click', function() {
+            clicks++;
+            cpsDisplay.textContent = `CPS: ${(clicks / (timer || 1)).toFixed(2)}`;  // Prevent dividing by zero
+        });
+    </script>
+
+</body>
+</html>
